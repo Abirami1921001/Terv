@@ -1,0 +1,326 @@
+1.MIXED SORTING
+Sample input
+5
+2 6 7 8 9
+
+Sample output
+2 6 9 8 7
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int size=ma.nextInt();
+        int a[]=new int[size];
+        for(int i=0;i<size;i++)
+        {
+            a[i]=ma.nextInt();
+        }
+        Arrays.sort(a);
+        for(int i=0;i<size/2;i++)
+        {
+            System.out.print(a[i]+" ");
+        }
+        for(int i=size-1;i>=size/2;i--)
+        {
+            System.out.print(a[i]+" ");
+        }
+    }
+}
+
+
+2.TWISTED PRIME NUMBER
+Sample input
+97
+
+Sample output
+Twisted Prime Number
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int temp=a;
+        int i;
+        int sum=0;
+        while(a!=0)
+        {
+            int rev=a%10;
+            sum=sum*10+rev;
+            a=a/10;
+        }
+        int c=0;
+        for(i=2;i<=sum/2;i++)
+        {
+            if((sum%i)==0)
+            {
+                c=1;
+                break;
+            }
+        }
+        if(c==0)
+        {
+            System.out.print("Twisted Prime Number");
+        }
+        else
+        {
+            System.out.print("Not Twisted Prime Number");
+        }
+    }
+}
+
+
+3.PANAGRAM CHECKING
+Sample input
+hi
+
+Sample output
+Not a panagram
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        String s=ma.nextLine();
+        boolean []alpha=new boolean[26];
+        int i=0;
+        int c=1;
+        for(int j=0;j<s.length();j++)
+        {
+            if(s.charAt(j)>= 'A' && s.charAt(j)<= 'Z')
+            {
+                i=s.charAt(j) - 'A';
+            }
+            else if(s.charAt(j)>= 'a' && s.charAt(j)<= 'z')
+            {
+                i=s.charAt(j) - 'a';
+            }
+            alpha[i] = true;
+        }
+        for(int j=0;j <= 25;j++)
+        {
+            if(alpha[j]==false)
+            c=0;
+        }
+        if(c==1)
+            System.out.print("TRUE");
+        else
+            System.out.print("FALSE");
+    }
+}
+
+
+4.AMSTRONG NUMBERS
+Sample input
+153
+
+Sample output
+Yes
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int ori,rem;
+        float res=0;
+        int n=0;
+        ori=a;
+        for(;ori!=0;ori=ori/10,++n);
+        ori=a;
+        for(;ori!=0;ori=ori/10)
+        {
+            rem=ori%10;
+            res+=Math.pow(rem,n);
+        }
+        if(res==a)
+        {
+            System.out.print("Yes");
+        }
+        else
+        {
+            System.out.print("No");
+        }
+    }
+}
+
+
+5.PALINDROME NUMBER OR NOT
+Sample input
+121
+
+Sample output
+Yes
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int temp=a;
+        int b=0;
+        while(a>0)
+        {
+            b=b*10+a%10;
+            a=a/10;
+        }
+        if(b!=temp)
+        {
+            System.out.println("No");
+        }
+        else
+        System.out.println("Yes");
+    }
+}
+
+
+6.LEAP YEAR OR NOT
+Sample input
+2016
+
+Sample output
+Yes
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        if(a%4==0 && a%100!=0 || a%400==0)
+        {
+            System.out.println("Yes");
+        }
+        else
+        {
+        System.out.println("No");
+        }
+    }
+}
+
+
+7.DECIMAL TO BINARY
+Sample input
+10
+
+Sample output
+1010
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int b[]=new int [a];
+        int i=0;
+        while(a>0)
+        {
+            b[i++]=a%2;
+            a=a/2;
+        }
+        for(int j=i-1;j>=0;j--)
+        {
+            System.out.print(b[j]);
+        }
+    }
+}
+
+
+8.PALINDROME STRING OR NOT
+Sample input
+madam
+
+Sample output
+Yes
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        String s1=ma.nextLine();
+        String s2="";
+        for(int i=s1.length()-1;i>=0;i--)
+        {
+            s2=s2+s1.charAt(i);
+        }
+        if(s1.equals(s2))
+        {
+            System.out.print("Yes");
+        }
+        else
+        {
+            System.out.print("No");
+        }
+    }
+}
+
+
+9.DECIMAL TO OCTAL
+Sample input
+12
+
+Sample output
+14
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int rem,s=1,o=0;
+        while(a!=0)
+        {
+            o=o+(a%8)*s;
+            a=a/8;
+            s=s*10;
+        }
+        System.out.print(o);
+    }
+}
+
+
+10.FACTORIAL
+Sample input
+3
+
+Sample output
+6
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int i=1;
+        int b=1;
+        while(i<=a)
+        {
+            b=b*i;
+            i++;
+        }
+        System.out.println(b);
+    }
+}
+
+
+11.
