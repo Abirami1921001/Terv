@@ -967,3 +967,404 @@ public class Main
 
 31.MERGE & SORT
 Sample input
+8 10
+2 4 5 6 7 9 10 13
+2 3 4 5 6 7 8 9 11 15
+
+Sample output
+2 3 4 5 6 7 8 9 10 11 13 15
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int asize=ma.nextInt();
+        int bsize=ma.nextInt();
+        int a[]=new int[asize];
+        int b[]=new int[bsize];
+        int c[]=new int[asize+bsize];
+        for(int i=0;i<asize;i++)
+        {
+            a[i]=ma.nextInt();
+        }
+        for(int i=0;i<bsize;i++)
+        {
+            b[i]=ma.nextInt();
+        }
+        System.arraycopy(a,0,c,0,asize);
+        System.arraycopy(b,0,c,asize,bsize);
+        Arrays.sort(c);
+        for(int i=0;i<c.length;i++)
+        {
+            int t=0;
+            for(int j=i+1;j<c.length;j++)
+            {
+                if(c[i]==c[j])
+                {
+                    t++;
+                }
+            }
+            if(t==0)
+            {
+                System.out.print(c[i]+" ");
+            }
+        }
+    }
+}
+
+
+32.PRIME NUMBERS BETWEEN RANGE
+Sample input
+1 7 
+
+Sample output
+2 3 5
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int b=ma.nextInt();
+        for(int n=a;n<=b;n++)
+        {
+            if(Prime(n))
+            {
+                System.out.print(n+" ");
+            }
+        }
+    }
+            
+    public static boolean Prime(int num)
+    {
+        for(int j=2;j<=num/j;++j)
+        {
+            if(num%j==0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+33.PRODUCT AND PERFECT SQUARE OF TWO NUMBERS
+Sample input
+5 5
+
+Sample output
+ Yes
+ 
+ import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int b=ma.nextInt();
+        if(a==b)
+        {
+            System.out.println("Yes");
+        }
+        else
+        {
+            int c=a*b;
+            int sqrt=(int)Math.sqrt(c);
+            if((sqrt*sqrt)==c)
+            System.out.println("Yes");
+            else
+            System.out.println("No");
+        }
+    }
+}
+
+
+34.TWO LIST AND MERGE WITHOUT DUPLICATE
+Sample input
+5 4
+1 2 3 6 9 
+2 4 5 10
+
+Sample output
+1 2 3 4 5 6 9 10
+
+import java.util.*;
+class Main
+{
+    public static void main(String[]args)
+    {
+        Scanner ma=new Scanner(System.in);
+        int n=ma.nextInt();
+        int m=ma.nextInt();
+        ArrayList<Integer> s =new ArrayList<Integer>();
+        for(int i=0;i<n;i++)
+        {
+            s.add(ma.nextInt());
+        }
+        for(int i=0;i<m;i++)
+        {
+            s.add(ma.nextInt());
+        }
+        Set a=Set.copyOf(s);
+        ArrayList<Integer> l=new ArrayList<Integer>(a);
+        Collections.sort(l);
+        for(int i:l)
+        {
+            System.out.print(i+" ");
+        }
+    }
+}
+
+
+35.WORD EQUIVALENT OF A NUMBER
+Sample input
+234
+
+Sample output
+Two Hundred Thirty Four
+
+import java.util.Scanner;
+public class Main   
+{   
+	static void numberToWords(char num[])  
+	{  
+		int l = num.length;    
+		if (l == 0)   
+		{       
+			System.out.println("The string is empty.");  
+			return;  
+		}    
+		if (l > 4)   
+		{      
+			System.out.println("\n The given number has more than 4 digits.");  
+			return;  
+		}      
+		String[] onedigit = new String[] {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};     
+		String[] twodigits = new String[] {"", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};     
+		String[] multipleoftens = new String[] {"",  "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};     
+		String[] poweroftens = new String[] {"Hundred", "Thousand"};       
+		if (l == 1)   
+		{   
+			System.out.println(onedigit[num[0]-'0']);  
+			return;  
+		}  
+		int m = 0;    
+		while (m < num.length)   
+		{    
+			if (l >= 3)   
+			{  
+				if (num[m] - '0' != 0)   
+				{  
+					System.out.print(onedigit[num[m] - '0'] + " ");  
+					System.out.print(poweroftens[l - 3]+ " ");  
+				}  
+				--l;  
+			}    
+			else   
+			{  
+	     
+				if (num[m] - '0' == 1)   
+				{    
+					int sum = num[m] - '0' + num[m + 1] - '0';  
+					System.out.println(twodigits[sum]);  
+					return;  
+				}  
+				else if (num[m] - '0' == 2 && num[m + 1] - '0' == 0)   
+				{      
+					System.out.println("Twenty");  
+					return;  
+				}    
+				else   
+				{  
+					int i = (num[m] - '0');  
+					if (i > 0)    
+						System.out.print(multipleoftens[i]+ " ");  
+					else  
+						System.out.print("");    
+					++m;    
+					if (num[m] - '0' != 0)   
+						System.out.println(onedigit[num[m] - '0']);  
+				}  
+			}  
+			++m ;
+
+		}  
+	}  
+	public static void main(String args[])  
+	{  
+		Scanner ma = new Scanner(System.in);
+		String num = ma.nextLine();
+		numberToWords(num.toCharArray());
+	}  
+}
+
+
+36.STRING REVERSE
+Sample input
+one two three
+
+Sample output
+three two one
+
+import java.util.*;
+import java.util.regex.Pattern;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        String s=ma.nextLine();
+        String arr[]=s.split("\\s");
+        String rem=" ";
+        for(int i=0;i<arr.length;i++)
+        {
+            if(i==arr.length-1)
+            {
+                rem=arr[i]+rem;
+            }
+            else
+            {
+                rem=" "+arr[i]+rem;
+            }
+        }
+        System.out.print(rem);
+    }
+}
+
+
+37.COUNT NUMBER OF ODD AND EVEN DIGITS
+Sample input
+1234567
+
+Sample output
+ODD 4
+EVEN 3
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int even=0;
+        int odd=0;
+        int rem;
+        while(a>0)
+        {
+            rem=a%10;
+            if(rem%2==0)
+            {
+                even++;
+            }
+            else
+            {
+                odd++;
+            }
+            a=a/10;
+        }
+        System.out.println("ODD "+odd);
+        System.out.println("EVEN "+even);
+    }
+}
+
+
+38.VOWEL OR CONSONANT
+Sample input
+e
+
+Sample output
+VOWEL
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        char ch;
+        ch=ma.next().charAt(0);
+        if(ch =='a'|| ch =='e'||ch =='i'||ch =='o'||ch =='u'||ch =='A'||ch =='E'||ch =='I'||ch =='O'||ch =='U')
+        {
+            System.out.println("VOWEL");
+        }
+        else 
+        {
+            System.out.println("CONSONANT");
+        }
+    }
+}
+
+
+39.NEON NUMBER
+Sample input
+9 (9 square 81 -> 8+1 -> 9)
+
+Sample output
+Yes
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner (System.in);
+        int a=ma.nextInt();
+        int sum=0;
+        int b=a*a;
+        while(b>0)
+        {
+            int c=b%10;
+            sum=sum+c;
+            b=b/10;
+        }
+        if(a==sum)
+        {
+            System.out.println("Yes");
+        }
+        else
+        {
+            System.out.println("No");
+        }
+    }
+}
+
+
+40.NEON NUMBER IN A RANGE
+Sample input
+8 10
+
+Sample output
+9
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int b=ma.nextInt();
+        for(int i=a;i<=b;i++)
+        {
+            int c=i*i;
+            int sum=0,rem=0;
+            while(c>0)
+            {
+                rem=c%10;
+                sum=sum+rem;
+                c=c/10;
+            }
+            if(sum==i)
+            {
+             System.out.print(i+" ");
+            }
+            
+        }
+    }
+}
