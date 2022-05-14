@@ -323,4 +323,647 @@ public class Main
 }
 
 
-11.
+11.SORTING OF FACTORS IN DESCENDING ORDER
+Sample input 
+2
+1 2
+
+Sample output
+2 1
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int b[]=new int[a];
+        for(int i=0;i<a;i++)
+        {
+            b[i]=ma.nextInt();
+        }
+        Arrays.sort(b);
+        for(int i=a-1;i>=0;i--)
+        {
+            System.out.print(b[i]+" ");
+        }
+    }
+}
+
+
+12.CHARACTER MULTIPLIER
+Sample input
+a1b2z3i4u5
+
+Sample output
+abbzzziiiiuuuuu
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        String s=ma.nextLine();
+        String a="";
+        for(int i=0;i<s.length();i=i+2)
+        {
+            int n=Character.getNumericValue(s.charAt(i+1));
+            for(int j=0;j<n;j++)
+            {
+                a=a+s.charAt(i);
+            }
+        }
+       System.out.print(a);
+    }
+}
+
+
+13.SQUARE PATTERN
+Sample input
+2
+
+Sample output
+* * 
+* * 
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        for(int i=0;i<a;i++)
+        {
+            for(int j=0;j<a;j++)
+            {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+14.RIGHT ANGLED TRIANGLE
+Sample input
+3
+
+Sample output
+*
+* *
+* * *
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        for(int i=0;i<a;i++)
+        {
+            for(int j=0;j<=i;j++)
+            {
+                System.out.print("* ");
+            }
+        System.out.println();
+        }
+    }
+}
+
+
+15.NUMBER PATTERN
+Sample input
+3
+
+Sample output
+1
+1 2 
+1 2 3
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        for(int i=1;i<=a;i++)
+        {
+            for(int j=1;j<=i;j++)
+            {
+                System.out.print(j+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+16.ALPHABET PATTERN
+Sample input
+4
+
+Sample output
+A
+A B
+A B C
+A B C D
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int alpha=65;
+        for(int i=0;i<a;i++)
+        {
+            for(int j=0;j<=i;j++)
+            {
+                System.out.print((char)(alpha+j));
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+17.RIGHT ANGLED INVERTED TRIANGLE
+Sample input
+3
+
+Sample output
+* * *
+* * 
+*
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int b=a+(a-1);
+        for(int i=1;i<=a;i++)
+        {
+            for(int j=0;j<b;j++)
+            {
+                System.out.print("*");
+            }
+            System.out.println();
+            b=b-2;
+        }
+    }
+}
+
+
+18.COUNT NUMBER OF DIGITS
+Sample input
+546
+
+Sample output
+3
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int count=0;
+        while(a>0)
+        {
+            a=a/10;
+            count++;
+        }
+        System.out.println(count);
+    }
+}
+
+
+19.EIFFEL TOWER PATTERN
+Sample input
+4
+
+Sample output
+1
+1
+1
+1
+2 2 2
+2 2 2
+2 2 2
+3 3 3 3 3
+3 3 3 3 3
+4 4 4 4 4 4 4
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int m=a+(a-1);
+        int n=1;
+        int l=1;
+        for(int i=1;i<=a;i++)
+        {
+            for(int j=a-i;j>=0;j--)
+            {
+                for(int k=0;k<l;k++)
+                {
+                System.out.print(n);
+                }
+                System.out.println();
+            }
+            l=l+2;
+        n++;
+        }
+    }
+}
+
+
+20.PRIME OR NOT
+Sample input
+11
+
+Sample output
+Yes
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int count=0;
+        for(int i=1;i<=a;i++)
+        {
+            if(a%i==0)
+            {
+            count++;
+            }
+        }
+        if(count==2)
+            System.out.println("Yes");
+        else
+            System.out.println("No");
+    }
+}
+
+
+21.DUPLICATE ELEMENT IN STRING
+Sample input
+Hello
+
+Sample output
+l
+
+import java.util.*;
+   public class  Main
+   {
+    public static void main(String[]args)
+    {
+        Scanner ma=new Scanner(System.in);
+        String s=ma.nextLine();
+        char ch[]=s.toCharArray();
+        for(int i=0;i<ch.length;i++)
+        {
+            int count=0;
+            for(int j=i+1;j<ch.length;j++)
+                if(ch[i]==ch[j])
+                {
+                    count++;
+                }
+                if(count!=0)
+                {
+                    System.out.print(ch[i]+" ");
+                }
+        }
+    }
+}
+
+
+22.SUB-STRING OR NOT
+Sample input
+test123string
+123
+
+Sample ooutput
+4
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        String a=ma.nextLine();
+        String b=ma.nextLine();
+        int c;
+        if(a.contains(b))
+        {
+            c=a.indexOf(b);
+        }
+        else
+        {
+            c=-1;
+        }
+        System.out.print(c);
+    }
+}
+
+
+23.MAJORITY ELEMENT COUNT
+Sample input
+hello world
+
+Sample output
+l
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma= new Scanner(System.in);
+        String s=ma.nextLine();
+        char ch[]=s.toCharArray();
+        int arr[]=new int[26],max=0,temp=arr[0];
+        for(int i=0;i<ch.length;i++)
+        {
+            int n=((int)ch[i]-97);
+            arr[n]++;
+        }
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i]>=temp)
+            {
+                max=0;
+                max=max+i;
+                temp=arr[i];
+            }            
+        }
+        System.out.println((char)(97+max));
+    }
+}
+
+
+24.LARGEST PRIME FACTOR
+Sample input
+10 
+
+Sample output 
+5
+
+import java.util.*;
+public class Main
+{
+    public static long Largest(long a)
+    {
+       int i=2;
+       while(i!=a)
+        {
+           if(a%i==0)
+                a=a/i;
+           else
+                i++;
+        }
+            return a;
+    }
+        public static void main(String args[])
+        {
+            Scanner ma=new Scanner(System.in);
+            int a=ma.nextInt();
+            System.out.print(Largest(a));
+        }
+}
+
+
+25.DISTINCT ELEMENTS IN ARRAY
+Sample input
+9
+2 3 4 5 6 1 2 3 4
+
+Sample output
+5 6 1
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int size=ma.nextInt();
+        int a[]=new int[size];
+        for(int i=0;i<size;i++)
+        {
+            a[i]=ma.nextInt();
+        }
+        for(int i=0;i<size;i++)
+        {
+            boolean dup=false;
+            for(int j=0;j<size;j++)
+            {
+                if((a[i]==a[j])&&(i!=j))
+                {
+                    dup=true;
+                    break;
+                }
+            }
+            if(!dup)
+            {
+                System.out.print(a[i]+" ");
+            }
+        }
+    }
+}
+
+
+26.SECOND MAXIMUM
+Sample input
+8
+5 6 9 4 3 2 1 7
+
+Sample output
+7
+
+import java.util.*;
+import java.util.Arrays;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int size=ma.nextInt();
+        int a[]=new int[size];
+        for(int i=0;i<size;i++)
+        {
+            a[i]=ma.nextInt();
+        }
+        int max1=0;
+        int max2=0;
+        for(int i=0;i<a.length;i++)
+        {
+            if(a[i]>max1)
+            {
+                max2=max1;
+                max1=a[i];
+            }
+            else if(max2<a[i]&&a[i]<max1)
+            {
+                max2=a[i];
+            }
+        }
+        System.out.print(max2);
+    }
+}
+
+
+27.UNION OF TWO LIST
+Sample input
+6 4
+1 2 4 4 5 4
+1 2 7 5
+
+Sample output
+1 2 4 5 7
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int n = ma.nextInt();
+        int m = ma.nextInt();
+        ArrayList<Integer> s = new ArrayList<Integer>();
+        for(int i=0;i<n;i++)
+        {
+            s.add(ma.nextInt());
+        }
+        for(int j=0;j<m;j++)
+        {
+            s.add(ma.nextInt());
+        }
+        Set a = Set.copyOf(s);
+        ArrayList<Integer> l = new ArrayList<Integer>(a);
+        Collections.sort(l);
+        for(int i:l){
+            System.out.print(i+" ");
+        }
+    }
+}
+
+
+28.REMOVE CHAR IN STRING
+Sample input
+hello
+l
+
+Sample output
+heo
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        String s=ma.next();
+        char c=(ma.next()).charAt(0);
+        String a="";
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)==c)
+                continue;
+                a=a+s.charAt(i);
+        
+        }
+            System.out.print(a);
+    }
+}
+
+
+29.REMOVE DUPLICATE CHARACTER IN STRING
+Sample input
+hello world
+
+Sample output
+helo wrd
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma= new Scanner(System.in);
+        String s = ma.nextLine();
+        String s1="";
+        char c[] = s.toCharArray();
+        for(char ch : c)
+        {
+            String n = Character.toString(ch);
+            if(s1.contains(n))
+            {
+                continue;
+            }
+            else{
+                s1+=ch;
+            }
+        } 
+        System.out.print(s1);
+    }
+}
+
+
+30.SECOND LARGEST NUMBER
+Sample input
+5
+3 -2 6 9 4 
+
+Sample output
+6
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int size=ma.nextInt();
+        int a[]=new int[size];
+        for(int i=0;i<size;i++)
+        {
+            a[i]=ma.nextInt();
+        }
+        int max1=0;
+        int max2=0;
+        for(int i=0;i<a.length;i++)
+        {
+            if(a[i]>max1)
+            {
+                max2=max1;
+                max1=a[i];
+            }
+            else if(max2<a[i]&&a[i]<max1)
+            {
+                max2=a[i];
+            }
+        }
+    System.out.print(max2);
+    }
+}
+
+
+31.MERGE & SORT
+Sample input
