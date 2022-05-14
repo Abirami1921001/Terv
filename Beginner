@@ -1368,3 +1368,117 @@ public class Main
         }
     }
 }
+
+
+41.SPIRAL PATTERN
+Sample input
+2
+
+Sample output
+2 2 2
+2 1 2
+2 2 2
+
+import java.util.*;
+import java.lang.Math;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int a=ma.nextInt();
+        int i,j,s;
+        s=2*a-1;
+        for(i=1;i<=s;i++)
+        {
+            for(j=1;j<=s;j++)
+            {
+                System.out.print(Math.max(Math.abs(i-a),Math.abs(j-a))+1+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+42.SORT IN ASCENDING AND DESCENDING ORDER
+Sample input
+5
+8 6 9 2 7
+
+Sample output
+2 6 7 8 9
+9 8 7 6 2
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        int size=ma.nextInt();
+        int a[]=new int[size];
+        int temp=0;
+        for(int i=0 ;i<size;i++)
+        {
+            a[i]=ma.nextInt();
+        }
+        for(int i=0;i<size;i++)
+        {
+            for(int j=i+1;j<size;j++)
+            {
+                if(a[i]>a[j])
+                {
+                    temp=a[i];
+                    a[i]=a[j];
+                    a[j]=temp;
+                }
+            }
+        }
+        for(int i=0;i<size;i++)
+        {
+            System.out.print(a[i]+" ");
+        }
+        for(int i=0;i<size;i++)
+        {
+            for(int j=i+1;j<size;j++)
+            {
+                if(a[i]<a[j])
+                {
+                    temp=a[i];
+                    a[i]=a[j];
+                    a[j]=temp;
+                }
+            }
+        }
+        System.out.println();
+        for(int i=0;i<size;i++)
+        {
+            System.out.print(a[i]+" ");
+        }
+    }
+}
+
+
+43.OCTAL TO BINARY
+Sample input
+12
+
+Sample output
+1010
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner ma=new Scanner(System.in);
+        String a=ma.nextLine();
+        int b=Integer.parseInt(a,8);
+        System.out.print(Integer.toBinaryString(b));
+    }
+}
+
+
+
+
